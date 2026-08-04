@@ -1,1 +1,242 @@
-Hello
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mogu Chang | LinkedIn Profile</title>
+  <meta name="description" content="Profile of Mogu Chang.">
+
+  <!-- Modern Google Fonts -->
+  <link rel=" preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- Password Protection Gate Overlay -->
+  <div id="passwordGate" class="password-gate-backdrop">
+    <div class="password-gate-card">
+      <div class="lock-icon-wrapper">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+          <path
+            d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z" />
+        </svg>
+      </div>
+      <h2>Protected Profile</h2>
+      <p class="gate-subtitle">Enter password to view Catherine's profile page</p>
+
+      <form id="passwordForm" class="password-form">
+        <div class="pwd-input-group">
+          <input type="password" id="pagePasswordInput" placeholder="Enter password..." required
+            autocomplete="current-password">
+          <button type="button" id="togglePwdVisibility" class="toggle-pwd-btn" title="Toggle visibility">👁️</button>
+        </div>
+        <div id="passwordError" class="password-error-msg">Incorrect password. Please try again.</div>
+        <button type="submit" class="btn-primary unlock-btn">
+          <span>Unlock Profile</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Floating Controls (Theme & Lock) -->
+  <div class="floating-controls">
+    <button id="lockProfileBtn" class="theme-toggle-btn" title="Lock Profile">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+        <path
+          d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z" />
+      </svg>
+      Lock Page
+    </button>
+    <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle Theme">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+        <path
+          d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4C12.92 3.04 12.46 3 12 3z" />
+      </svg>
+      Dark Mode
+    </button>
+  </div>
+
+  <!-- Main Profile Layout -->
+  <main class="main-wrapper">
+
+    <!-- Main Column -->
+    <div class="main-column">
+
+      <!-- Hero Card -->
+      <section class="card profile-hero-card">
+        <div class="profile-banner">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1' height='1'></svg>" alt="Cover Banner" id="profileBanner">
+          <button class="edit-banner-btn admin-only" title="Edit background graphic" id="editBannerBtn" style="display:none;">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="profile-hero-content">
+          <div class="avatar-container">
+            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231e293b'/><circle cx='50' cy='50' r='30' fill='%23475569'/></svg>" alt="Profile Avatar" class="profile-avatar" id="profileAvatar">
+            <button class="edit-avatar-btn admin-only" title="Edit avatar" id="editAvatarBtn" style="display:none; position: absolute; bottom: 0; right: 0; background: rgba(0,0,0,0.6); border: none; border-radius: 50%; padding: 8px; cursor: pointer; color: white; line-height: 1;">📷</button>
+          </div>
+
+          <div class="profile-name-row">
+            <div class="profile-name-group">
+              <h1 class="profile-name" id="profileName">Loading...</h1>
+              <svg class="verified-badge" viewBox="0 0 24 24" title="Verified Member">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+              </svg>
+              <span class="pronouns" id="profilePronouns"></span>
+            </div>
+            <button class="btn-primary admin-only" id="editIntroBtn" style="display:none; font-size:12px; padding:6px 14px;">✏️ Edit Intro</button>
+          </div>
+
+          <p class="profile-headline" id="profileHeadline"></p>
+
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section class="card">
+        <div class="card-header">
+          <h2 class="card-title">About</h2>
+          <button class="btn-primary admin-only" id="editAboutBtn" style="display:none; font-size:12px; padding:6px 14px;">✏️ Edit</button>
+        </div>
+        <div class="card-body">
+          <div id="aboutContent" class="about-text expandable-content collapsed"></div>
+          <span id="aboutSeeMore" class="btn-see-more">...see more</span>
+        </div>
+      </section>
+
+      <!-- Featured Works Section -->
+      <section class="card">
+        <div class="card-header">
+          <h2 class="card-title">Featured</h2>
+          <button class="btn-primary admin-only" id="addFeaturedBtn" style="display:none; font-size:12px; padding:6px 14px;">+ Add Project</button>
+        </div>
+        <div class="card-body">
+          <div class="featured-grid" id="featuredGrid"></div>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section class="card">
+        <div class="card-header">
+          <h2 class="card-title">Experience</h2>
+          <button class="btn-primary admin-only" id="addExperienceBtn" style="display:none; font-size:12px; padding:6px 14px;">+ Add Experience</button>
+        </div>
+        <div class="card-body" id="experienceList"></div>
+      </section>
+
+      <!-- Education Section -->
+      <section class="card">
+        <div class="card-header">
+          <h2 class="card-title">Education</h2>
+          <button class="btn-primary admin-only" id="addEducationBtn" style="display:none; font-size:12px; padding:6px 14px;">+ Add Education</button>
+        </div>
+        <div class="card-body" id="educationList"></div>
+      </section>
+
+      <!-- Skills & Endorsements -->
+      <section class="card">
+        <div class="card-header">
+          <h2 class="card-title">Skills</h2>
+          <button class="btn-primary admin-only" id="addSkillBtn" style="display:none; font-size:12px; padding:6px 14px;">+ Add Skill</button>
+        </div>
+        <div class="card-body">
+          <div class="skills-list" id="skillsList"></div>
+        </div>
+      </section>
+
+      <!-- Recommendations Section -->
+      <section class="card">
+        <div class="card-header">
+          <h2 class="card-title">Recommendations</h2>
+          <button id="openAddRecModal" class="btn-primary" style="font-size:12px; padding:6px 14px;">+ Add Recommendation</button>
+        </div>
+        <div class="card-body">
+          <div id="recReceivedView"></div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Contact Info Modal -->
+  <div id="contactModal" class="modal-backdrop">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title" id="contactModalTitle">Contact Info</h3>
+        <span id="closeContactModal" class="modal-close-btn">&times;</span>
+      </div>
+      <div class="modal-body" style="position:relative;">
+        <button class="btn-primary admin-only" id="editContactBtn" style="display:none; font-size:12px; padding:6px 14px; position:absolute; top:-40px; right:40px;">✏️ Edit</button>
+        <div id="contactModalContent"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Recommendation Modal -->
+  <div id="addRecModal" class="modal-backdrop">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title">Write a Recommendation for Catherine</h3>
+        <span id="closeAddRecModal" class="modal-close-btn">&times;</span>
+      </div>
+      <form id="addRecForm" class="modal-body" style="display:flex; flex-direction:column; gap:14px;">
+        <div>
+          <label style="display:block; font-weight:600; font-size:12px; margin-bottom:4px;">Your Name</label>
+          <input type="text" id="recAuthorName" placeholder="e.g. Sarah Connor" required
+            style="width:100%; padding:8px 12px; border:1px solid var(--border-color); border-radius:var(--radius-sm); font-size:14px; background:var(--bg-card); color:var(--text-primary);">
+        </div>
+        <div>
+          <label style="display:block; font-weight:600; font-size:12px; margin-bottom:4px;">Title & Relationship</label>
+          <input type="text" id="recAuthorTitle"
+            placeholder="e.g. Principal Architect at Tech Corp • Worked on same team" required
+            style="width:100%; padding:8px 12px; border:1px solid var(--border-color); border-radius:var(--radius-sm); font-size:14px; background:var(--bg-card); color:var(--text-primary);">
+        </div>
+        <div>
+          <label style="display:block; font-weight:600; font-size:12px; margin-bottom:4px;">Recommendation</label>
+          <textarea id="recText" rows="4" placeholder="Write your recommendation..." required
+            style="width:100%; padding:8px 12px; border:1px solid var(--border-color); border-radius:var(--radius-sm); font-size:14px; font-family:inherit; background:var(--bg-card); color:var(--text-primary); resize:vertical;"></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="justify-content:center; padding:10px; font-size:14px;">Submit
+          Recommendation</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Dynamic Editor Modal (Admin Only) -->
+  <div id="editorModal" class="modal-backdrop">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title" id="editorModalTitle">Edit Section</h3>
+        <span id="closeEditorModal" class="modal-close-btn">&times;</span>
+      </div>
+      <form id="editorForm" class="modal-body" style="display:flex; flex-direction:column; gap:14px;">
+        <div id="editorFormFields" style="display:flex; flex-direction:column; gap:14px;"></div>
+        <button type="submit" class="btn-primary" style="justify-content:center; padding:10px; font-size:14px;">Save Changes</button>
+      </form>
+    </div>
+  </div>
+  <!-- Hidden inputs for admin image uploads -->
+  <input type="file" id="avatarFileInput" accept="image/*" style="display:none;">
+  <input type="file" id="bannerFileInput" accept="image/*" style="display:none;">
+
+  <!-- Scripts -->
+  <script type="module" src="script.js"></script>
+</body>
+
+</html>
